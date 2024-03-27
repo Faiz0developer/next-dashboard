@@ -4,6 +4,7 @@ import { MongoClient, ObjectId } from "mongodb";
 import MeetupDetails from "@/components/meetups/MeetupDetails";
 
 const MeetupDetailsPage = ({ meetupData }) => {
+  console.log(meetupData)
   return (
     <MeetupDetails
       title={meetupData.title}
@@ -36,7 +37,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
-  const objectMeetupId = new ObjectId(meetupId);
   const client = await MongoClient.connect(
     "mongodb+srv://faizansiddiqui:Bismillah@mycluster.zsttz8l.mongodb.net/meetups?retryWrites=true&w=majority&appName=mycluster"
   );
@@ -45,7 +45,7 @@ export async function getStaticProps(context) {
   const meetupCollections = db.collection("meetups");
 
   const selectedMeetups = await meetupCollections.findOne({
-    _id: objectMeetupId,
+    _id: new ObjectId(meetupId),
   });
 
   client.close();
