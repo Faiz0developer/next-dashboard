@@ -6,8 +6,8 @@ import MeetupDetails from "@/components/meetups/MeetupDetails";
 const MeetupDetailsPage = ({ meetupData }) => {
   return (
     <MeetupDetails
-      image={meetupData.image}
       title={meetupData.title}
+      image={meetupData.image}
       address={meetupData.address}
       description={meetupData.description}
     />
