@@ -3,14 +3,13 @@ import { MongoClient, ObjectId } from "mongodb";
 
 import MeetupDetails from "@/components/meetups/MeetupDetails";
 
-const MeetupDetailsPage = ({ meetupData }) => {
-  console.log(meetupData)
+const MeetupDetailsPage = (props) => {
   return (
     <MeetupDetails
-      title={meetupData.title}
-      image={meetupData.image}
-      address={meetupData.address}
-      description={meetupData.description}
+      title={props.meetupData.title}
+      image={props.meetupData.image}
+      address={props.meetupData.address}
+      description={props.meetupData.description}
     />
   );
 };
