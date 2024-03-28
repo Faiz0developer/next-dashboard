@@ -37,4 +37,8 @@
   .header a.active {
     color: white;
   }
-  
+  .highlighted{
+    color: white;
+    border-bottom: 1px solid #fcb8d2;
+    transition: 0.3s all ease-out;
+  }

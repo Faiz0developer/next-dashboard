@@ -1,7 +1,9 @@
-import classes from './MainNavigation.module.css';
-import Link from 'next/link';
+import { useState } from "react";
+import classes from "./MainNavigation.module.css";
+import Link from "next/link";
 
 function MainNavigation() {
+  const [highlighNav, setHighLightNav] = useState(0);
 
   return (
     <header className={classes.header}>
@@ -9,10 +11,22 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <Link href='/'>All Meetups</Link>
+            <Link
+              href="/"
+              onClick={() => setHighLightNav(0)}
+              className={`${highlighNav === 0 ? classes.highlighted : ""}`}
+            >
+              All Meetups
+            </Link>
           </li>
           <li>
-            <Link href='/new-meetup'>Add New Meetup</Link>
+            <Link
+              href="/new-meetup"
+              onClick={() => setHighLightNav(1)}
+              className={`${highlighNav === 1 ? classes.highlighted : ""}`}
+            >
+              Add New Meetup
+            </Link>
           </li>
         </ul>
       </nav>
